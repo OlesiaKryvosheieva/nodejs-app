@@ -7,9 +7,11 @@ const {
   updateContactById,
   updateStatusContact,
 } = require("../../controllers/contacts");
-const { isValidId } = require("../../middlewares");
+const { isValidId, authenticate } = require("../../middlewares");
 
 const router = express.Router();
+
+router.use(authenticate);
 
 router.get("/", getAllContacts);
 
